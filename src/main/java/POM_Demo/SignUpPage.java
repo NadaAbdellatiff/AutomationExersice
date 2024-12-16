@@ -12,6 +12,9 @@ public class SignUpPage {
     private By userNamefeild_input = By.name("name");
     private By emaiFeild_input = By.xpath("//input[@data-qa='signup-email']");
     private By signUp_button = By.xpath("//button[@data-qa='signup-button']");
+    private By emailAddress_input = By.xpath("//input[@data-qa=\"login-email\"]");
+    private By passward_input = By.xpath("//input[@data-qa=\"login-password\"]");
+    private By login_button = By.xpath("//button[@data-qa=\"login-button\"]");
 
 
     /**********************************Constructor***********************************/
@@ -33,6 +36,12 @@ public class SignUpPage {
     public void navigateToSignUpPage() {
         // Load the page
         driver.get(SignUpUrl);
+    }
+    @Step("Enter your email and password")
+    public void login(String email , String password){
+        driver.findElement(emailAddress_input).sendKeys(email);
+        driver.findElement(passward_input).sendKeys(password);
+        driver.findElement(login_button).click();
     }
 
 

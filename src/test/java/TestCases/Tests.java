@@ -34,7 +34,7 @@ public class Tests {
         //driver = new ChromeDriver();
         driver = initiateDriver(System.getProperty("browserName"), true);
 
-        jsonFileManager = new JsonFileManager("E:\\Automation\\Automation_Ex1\\src\\test\\resources\\TestDataJsonFile\\TestData.json");
+        jsonFileManager = new JsonFileManager("E:\\Automation\\AutomationExersice\\src\\test\\resources\\TestDataJsonFile\\TestData.json");
 
         //Maximizing the screen size
         // driver.manage().window().maximize();
@@ -69,13 +69,20 @@ public class Tests {
         new SignUpPage(driver)
                 .signUp1(jsonFileManager.getTestData("username"), jsonFileManager.getTestData("email"));
 
-        new RegestrationPage(driver).enterAccountInfo("Male", "12345")
+        new RegestrationPage(driver).enterAccountInfo("Male", jsonFileManager.getTestData("newPassword"))
                 .enterAddressInfo("nada", "salah", "giza", "aswan", "alex", "cairo",
                         "giza", "1234", "12344");
 
         new AccountcreatedPage(driver)
                 .assertCreatingAcc("ACCOUNT CREATED!")
                 .clickOnContiueBttn();
+
+        new MenuSkelton(driver)
+                .logOut();
+
+        new SignUpPage(driver)
+                .login(jsonFileManager.getTestData("email"),jsonFileManager.getTestData("newPassword") );
+
 
         new MenuSkelton(driver)
                 .deleteClick();

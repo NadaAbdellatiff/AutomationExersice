@@ -11,6 +11,7 @@ public class MenuSkelton {
 
     private By signLogBbttn_a = By.linkText("Signup / Login");
     private By deleteBttn_a = By.linkText("Delete Account");
+    private By logOut_a = By.xpath("//a[@href='/logout']");
 
     /**********************************Constructor***********************************/
 
@@ -27,6 +28,11 @@ public class MenuSkelton {
     @Step("Click on Delete account in the header")
     public void deleteClick(){
         driver.findElement(deleteBttn_a).click();
+    }
+
+    @Step("Click on Logout in the header")
+    public void logOut(){
+        driver.findElement(logOut_a).click();
     }
 
 
