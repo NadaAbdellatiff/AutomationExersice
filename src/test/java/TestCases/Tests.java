@@ -78,6 +78,38 @@ public class Tests {
                 .clickOnContiueBttn();
 
         new MenuSkelton(driver)
+                .deleteClick();
+
+        new AccountDeletedPage(driver).
+                assertDeletingAccount("ACCOUNT DELETED!")
+                .clickOnContiueBttn();
+
+
+
+    }
+
+    @Test(description = "Login Test cases")
+    @Description("login Test case ")
+    @Severity(SeverityLevel.CRITICAL)
+    public void LoginTC2() {
+        new HomePage(driver)
+                .navigateToHomePage();
+
+        new MenuSkelton(driver)
+                .signUpClick();
+
+        new SignUpPage(driver)
+                .signUp1(jsonFileManager.getTestData("username"), jsonFileManager.getTestData("email"));
+
+        new RegestrationPage(driver).enterAccountInfo("Male", jsonFileManager.getTestData("newPassword"))
+                .enterAddressInfo("nada", "salah", "giza", "aswan", "alex", "cairo",
+                        "giza", "1234", "12344");
+
+        new AccountcreatedPage(driver)
+                .assertCreatingAcc("ACCOUNT CREATED!")
+                .clickOnContiueBttn();
+
+        new MenuSkelton(driver)
                 .logOut();
 
         new SignUpPage(driver)
@@ -91,18 +123,7 @@ public class Tests {
                 assertDeletingAccount("ACCOUNT DELETED!")
                 .clickOnContiueBttn();
 
-        /// ////////////////WithoutFluent///////////
-//       homePage.navigateToHomePage();
-//       homePage.signUpClick();
-//       signUpPage.signUp1("nada" , "nada68@gmail.com");
-//       regestrationPage.enterAccountInfo("Male", "12345");
-//       regestrationPage.enterAddressInfo("nada", "salah" , "giza" , "aswan" ,"alex" ,"cairo" ,
-//               "giza" , "1234" , "12344");
-//       accountcreatedPage.assertCreatingAcc("ACCOUNT CREATED!");
-//       accountcreatedPage.clickOnContiueBttn();
-//       homePage.deleteClick();
-//       accountDeletedPage.assertDeletingAccount("ACCOUNT DELETED!");
-//       accountDeletedPage.clickOnContiueBttn();
+
 
     }
 
@@ -117,3 +138,19 @@ public class Tests {
 
 
 }
+
+
+
+
+/// ////////////////WithoutFluent///////////
+//       homePage.navigateToHomePage();
+//       homePage.signUpClick();
+//       signUpPage.signUp1("nada" , "nada68@gmail.com");
+//       regestrationPage.enterAccountInfo("Male", "12345");
+//       regestrationPage.enterAddressInfo("nada", "salah" , "giza" , "aswan" ,"alex" ,"cairo" ,
+//               "giza" , "1234" , "12344");
+//       accountcreatedPage.assertCreatingAcc("ACCOUNT CREATED!");
+//       accountcreatedPage.clickOnContiueBttn();
+//       homePage.deleteClick();
+//       accountDeletedPage.assertDeletingAccount("ACCOUNT DELETED!");
+//       accountDeletedPage.clickOnContiueBttn();
