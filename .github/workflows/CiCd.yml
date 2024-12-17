@@ -78,14 +78,6 @@ jobs:
         uses: stCarolas/setup-maven@v4.5
         with:
           maven-version: 3.9.6
-
-      - name: Set Default Test Path
-        run: |
-          if [ -z "${{ github.event.inputs.testsPath }}" ]; then
-            echo "TEST_PATH=DefaultTestClass" >> $GITHUB_ENV
-          else
-            echo "TEST_PATH=${{ github.event.inputs.testsPath }}" >> $GITHUB_ENV
-          fi
       
 
       - name: Run Tests
