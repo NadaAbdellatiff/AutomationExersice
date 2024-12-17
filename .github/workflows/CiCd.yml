@@ -79,6 +79,15 @@ jobs:
         with:
           maven-version: 3.9.6
 
+      - name: Set Default Test Path
+        run: |
+          if [ -z "${{ github.event.inputs.testsPath }}" ]; then
+            echo "TEST_PATH=DefaultTestClass" >> $GITHUB_ENV
+          else
+            echo "TEST_PATH=${{ github.event.inputs.testsPath }}" >> $GITHUB_ENV
+          fi
+      
+
       - name: Run Tests
         continue-on-error: true
         run: mvn test "-DbrowserName=edge" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=false" "-Dtest=${{ github.event.inputs.testsPath }}"
