@@ -12,7 +12,7 @@ on:
     inputs:
       testsPath:
         description: 'Enter the path to Tests to be Executed'
-        default: ''
+        default: 'TestCases.Tests'
 
 
 jobs:
