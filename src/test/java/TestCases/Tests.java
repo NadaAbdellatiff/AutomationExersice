@@ -34,7 +34,8 @@ public class Tests {
         //driver = new ChromeDriver();
         driver = initiateDriver(System.getProperty("browserName"), true , true);
 
-        jsonFileManager = new JsonFileManager("E:\\Automation\\AutomationExersice\\src\\test\\resources\\TestDataJsonFile\\TestData.json");
+        //jsonFileManager = new JsonFileManager("E:\\Automation\\AutomationExersice\\src\\test\\resources\\TestDataJsonFile\\TestData.json");
+        jsonFileManager = new JsonFileManager("src/test/resources/TestDataJsonFile/TestData.json");
 
 
 
