@@ -54,7 +54,7 @@ jobs:
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: Tests Report Firefox_Linux
+          name: Tests Report Chrome_Linux
           path: 'target/surefire-reports/TEST-*.xml'
           reporter: java-junit
 
@@ -98,6 +98,6 @@ jobs:
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: Tests Report Firefox_Linux
+          name: Tests Report Edge_Windows
           path: 'target/surefire-reports/TEST-*.xml'
           reporter: java-junit
