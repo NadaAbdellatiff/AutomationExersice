@@ -16,7 +16,7 @@ on:
 
 
 jobs:
-  E2E_Chrome_Linux_Test:
+  Chrome_Ubuntu_Test:
     runs-on: ubuntu-latest
     permissions:
       checks: write
@@ -60,7 +60,7 @@ jobs:
 
 
 
-  E2E_Edge_Windows_Test:
+  Edge_Windows_Test:
     runs-on: windows-latest
     permissions:
       checks: write
