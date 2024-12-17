@@ -32,18 +32,10 @@ public class Tests {
     @BeforeClass
     public void Setup() {
         //driver = new ChromeDriver();
-        driver = initiateDriver(System.getProperty("browserName"), true);
+        driver = initiateDriver(System.getProperty("browserName"), true , true);
 
         jsonFileManager = new JsonFileManager("E:\\Automation\\AutomationExersice\\src\\test\\resources\\TestDataJsonFile\\TestData.json");
 
-        //Maximizing the screen size
-        // driver.manage().window().maximize();
-//        homePage = new HomePage(driver);
-//        signUpPage = new SignUpPage(driver);
-//        regestrationPage = new RegestrationPage(driver);
-//        accountcreatedPage = new AccountcreatedPage(driver);
-//        accountDeletedPage = new AccountDeletedPage(driver);
-        //menuSkelton = new MenuSkelton((driver);
 
 
     }
