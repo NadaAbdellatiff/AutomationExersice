@@ -2,16 +2,18 @@ name: E2E Tests
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # Runs at 8:00 AM UTC daily
+    - cron: '0 9 * * *'
 
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
   workflow_dispatch:
     inputs:
       testsPath:
-        description: 'Path to Tests to be Executed'
+        description: 'Enter the path to Tests to be Executed'
         default: ''
+
 
 jobs:
   E2E_Chrome_Linux_Test:
@@ -35,7 +37,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test -DbrowserName="chrome" -DheadlessExecution="true" -Dtest="${{ github.event.inputs.testsPath }}"
+        run: mvn test "-DbrowserName=chrome" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=true" "-Dtest=${{ github.event.inputs.testsPath }}"
 
       - name: Generate Allure Report Single File
         continue-on-error: true
@@ -55,6 +57,7 @@ jobs:
           name: Tests Report Chrome_Linux
           path: 'target/surefire-reports/TEST-*.xml'
           reporter: java-junit
+
 
 
   E2E_Edge_Windows_Test:
@@ -78,7 +81,7 @@ jobs:
 
       - name: Run Tests
         continue-on-error: true
-        run: mvn test -DbrowserName="edge" -Dallure.results.directory="target/allure-results" -DheadlessExecution="false" -Dtest="${{ github.event.inputs.testsPath }}"
+        run: mvn test "-DbrowserName=edge" "-Dallure.results.directory=target/allure-results" "-DheadlessExecution=false" "-Dtest=${{ github.event.inputs.testsPath }}"
 
       - name: Generate Allure Report Single File
         continue-on-error: true
